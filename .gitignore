@@ -1,6 +1,9 @@
 # node modules
 node_modules/
 
+#readme
+README.md
+
 # Logs
 logs
 *.log
