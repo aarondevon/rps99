@@ -41,7 +41,11 @@ const isValidValue = (moveOneValue, moveTwoValue, moveThreeValue) => {
 	return true;
 };
 
-
+// check for valid value total
+const isValidTotal = (moveOneValue, moveTwoValue, moveThreeValue) => {
+	let total = moveOneValue + moveTwoValue + moveThreeValue;
+	return total >= 1 && total <= 99;
+}
 
 // Set player moves
 const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue) => {
@@ -50,6 +54,10 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
 	}
 
 	if (!isValidValue(moveOneValue, moveTwoValue, moveThreeValue)) {
+		return;
+	}
+
+	if (!isValidTotal(moveOneValue, moveTwoValue, moveThreeValue)) {
 		return;
 	}
 
