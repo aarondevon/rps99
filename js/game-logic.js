@@ -17,6 +17,13 @@ let playerTwoMoveThreeValue;
 
 const validMoves = ["rock", "paper", "scissors"];
 
+// generate array of valid values
+const fillRange = (start, end) => {
+  return Array(end - start + 1).fill().map((item, index) => start + index);
+};
+
+const validValues = fillRange(1, 99);
+
 // Check for valid move type
 const isValidMove = (moveOneType, moveTwoType, moveThreeType) => {
 	if (!(validMoves.includes(moveOneType)) || !(validMoves.includes(moveTwoType)) || !(validMoves.includes(moveThreeType))) {
@@ -26,8 +33,23 @@ const isValidMove = (moveOneType, moveTwoType, moveThreeType) => {
 	return true;
 };
 
+// Check for valid move values
+const isValidValue = (moveOneValue, moveTwoValue, moveThreeValue) => {
+	if (!(validValues.includes(moveOneValue)) || !(validValues.includes(moveTwoValue)) || !(validValues.includes(moveThreeValue))) {
+		return false;
+	}
+	return true;
+};
+
+
+
+// Set player moves
 const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue) => {
 	if (!isValidMove(moveOneType, moveTwoType, moveThreeType)) {
+		return;
+	}
+
+	if (!isValidValue(moveOneValue, moveTwoValue, moveThreeValue)) {
 		return;
 	}
 
