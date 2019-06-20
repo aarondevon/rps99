@@ -34,11 +34,11 @@ const isValidMove = (move) => {
 };
 
 // Check for valid move values
-const isValidValue = (moveOneValue, moveTwoValue, moveThreeValue) => {
-	if (!(validValues.includes(moveOneValue)) || !(validValues.includes(moveTwoValue)) || !(validValues.includes(moveThreeValue))) {
-		return false;
+const isValidValue = (moveValue) => {
+	if (validValues.includes(moveOneValue)) {
+		return true;
 	}
-	return true;
+	return false;
 };
 
 // check for valid value total
