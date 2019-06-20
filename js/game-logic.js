@@ -49,7 +49,7 @@ const isValidTotal = (moveOneValue, moveTwoValue, moveThreeValue) => {
 
 // Set player moves
 const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue) => {
-	if (!isValidMove(moveOneType, moveTwoType, moveThreeType)) {
+	if (!isValidMove(moveOneType) ||!isValidMove(moveTwoType) || !isValidMove(moveThreeType)) {
 		return;
 	}
 
@@ -106,14 +106,23 @@ const getRoundWinner = (round) => {
 	}
 
 	if (round === 1) {
+		if (!isValidMove(playerOneMoveOneType)) {
+			return null;
+		}
 		return roundWinner(playerOneMoveOneType, playerTwoMoveOneType, playerOneMoveOneValue, playerTwoMoveOneValue);
 	}
 
 	if (round === 2) {
+		if (!isValidMove(playerOneMoveTwoType)) {
+			return null;
+		}
 		return roundWinner(playerOneMoveTwoType, playerTwoMoveTwoType, playerOneMoveTwoValue, playerTwoMoveTwoValue);
 	}
 
 	if (round === 3) {
+		if (!isValidMove(playerOneMoveThreeType)) {
+			return null;
+		}
 		return roundWinner(playerOneMoveThreeType, playerTwoMoveThreeType, playerOneMoveThreeValue, playerTwoMoveThreeValue);
 	}
 }
