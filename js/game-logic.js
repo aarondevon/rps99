@@ -79,3 +79,14 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
 		playerTwoMoveThreeValue = moveThreeValue;
 	}
 };
+
+const isValidRound = (round) => {
+	return round >= 1 && round <= 3;
+};
+
+const getRoundWinner = (round) => {
+	if (!isValidRound(round)) {
+		return null;
+	}
+
+}
