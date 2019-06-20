@@ -35,7 +35,7 @@ const isValidMove = (move) => {
 
 // Check for valid move values
 const isValidValue = (moveValue) => {
-	if (validValues.includes(moveOneValue)) {
+	if (validValues.includes(moveValue)) {
 		return true;
 	}
 	return false;
