@@ -25,12 +25,12 @@ const fillRange = (start, end) => {
 const validValues = fillRange(1, 99);
 
 // Check for valid move type
-const isValidMove = (moveOneType, moveTwoType, moveThreeType) => {
-	if (!(validMoves.includes(moveOneType)) || !(validMoves.includes(moveTwoType)) || !(validMoves.includes(moveThreeType))) {
-		return false;
+const isValidMove = (move) => {
+	if (validMoves.includes(move)) {
+		return true;
 	}
 
-	return true;
+	return false;
 };
 
 // Check for valid move values
