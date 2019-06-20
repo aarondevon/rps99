@@ -15,6 +15,9 @@ let playerTwoMoveOneValue;
 let playerTwoMoveTwoValue;
 let playerTwoMoveThreeValue;
 
+let playerOneScore;
+let playerTwoScore;
+
 const validMoves = ["rock", "paper", "scissors"];
 
 // generate array of valid values
