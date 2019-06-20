@@ -106,7 +106,7 @@ const getRoundWinner = (round) => {
 	}
 
 	if (round === 1) {
-		if (!isValidMove(playerOneMoveOneType) || !isValidValue(playerOneMoveOneValue) || !isValidValue(playerTWoMoveOneValue)) {
+		if (!isValidMove(playerOneMoveOneType) || !isValidValue(playerOneMoveOneValue) || !isValidValue(playerTwoMoveOneValue)) {
 			return null;
 		}
 		return roundWinner(playerOneMoveOneType, playerTwoMoveOneType, playerOneMoveOneValue, playerTwoMoveOneValue);
