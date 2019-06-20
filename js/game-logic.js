@@ -53,9 +53,9 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
 		return;
 	}
 
-	if (!isValidValue(moveOneValue, moveTwoValue, moveThreeValue)) {
-		return;
-	}
+	// if (!isValidValue(moveOneValue) || !isValidValue(moveTwoValue) || !isValidValue(moveThreeValue)) {
+	// 	return;
+	// }
 
 	if (!isValidTotal(moveOneValue, moveTwoValue, moveThreeValue)) {
 		return;
@@ -106,21 +106,21 @@ const getRoundWinner = (round) => {
 	}
 
 	if (round === 1) {
-		if (!isValidMove(playerOneMoveOneType)) {
+		if (!isValidMove(playerOneMoveOneType) || !isValidValue(playerOneMoveOneValue) || !isValidValue(playerTWoMoveOneValue)) {
 			return null;
 		}
 		return roundWinner(playerOneMoveOneType, playerTwoMoveOneType, playerOneMoveOneValue, playerTwoMoveOneValue);
 	}
 
 	if (round === 2) {
-		if (!isValidMove(playerOneMoveTwoType)) {
+		if (!isValidMove(playerOneMoveTwoType) || !isValidValue(playerOneMoveTwoValue) || !isValidValue(playerTwoMoveTwoValue)) {
 			return null;
 		}
 		return roundWinner(playerOneMoveTwoType, playerTwoMoveTwoType, playerOneMoveTwoValue, playerTwoMoveTwoValue);
 	}
 
 	if (round === 3) {
-		if (!isValidMove(playerOneMoveThreeType)) {
+		if (!isValidMove(playerOneMoveThreeType) || !isValidValue(playerOneMoveThreeValue) || !isValidValue(playerTwoMoveThreeValue)) {
 			return null;
 		}
 		return roundWinner(playerOneMoveThreeType, playerTwoMoveThreeType, playerOneMoveThreeValue, playerTwoMoveThreeValue);
