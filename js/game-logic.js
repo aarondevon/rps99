@@ -48,7 +48,7 @@ const isValidValue = (moveValue) => {
 const isValidTotal = (moveOneValue, moveTwoValue, moveThreeValue) => {
 	let total = moveOneValue + moveTwoValue + moveThreeValue;
 	return total >= 1 && total <= 99;
-}
+};
 
 // Set player moves
 const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue) => {
@@ -106,7 +106,7 @@ const roundWinner = (playerOneMoveType, playerTwoMoveType, playerOneMoveValue, p
 		playerTwoScore += 1;
 		return "Player Two";
 	}
-}
+};
 
 const getRoundWinner = (round) => {
 	if (!isValidRound(round)) {
@@ -133,16 +133,14 @@ const getRoundWinner = (round) => {
 		}
 		return roundWinner(playerOneMoveThreeType, playerTwoMoveThreeType, playerOneMoveThreeValue, playerTwoMoveThreeValue);
 	}
-}
+};
 
 const resetPlayerScore = () => {
 	playerOneScore = 0;
 	playerTwoScore = 0;
-}
+};
 
 const getGameWinner = () => {
-	debugger;
-	console.log(playerOneScore, playerTwoScore);
 	if (playerOneScore > playerTwoScore) {
 		resetPlayerScore();
 		return "Player One";
@@ -153,4 +151,14 @@ const getGameWinner = () => {
 		resetPlayerScore();
 		return "Tie";
 	}
-}
+};
+
+const setComputerMoves = () => {
+	playerTwoMoveOneType;
+	playerTwoMoveTwoType;
+	playerTwoMoveThreeType;
+
+	playerTwoMoveOneValue;
+	playerTwoMoveTwoValue;
+	playerTwoMoveThreeValue;
+};
