@@ -15,8 +15,8 @@ let playerTwoMoveOneValue;
 let playerTwoMoveTwoValue;
 let playerTwoMoveThreeValue;
 
-let playerOneScore;
-let playerTwoScore;
+let playerOneScore = 0;
+let playerTwoScore = 0;
 
 const validMoves = ["rock", "paper", "scissors"];
 
@@ -135,12 +135,22 @@ const getRoundWinner = (round) => {
 	}
 }
 
+const resetPlayerScore = () => {
+	playerOneScore = 0;
+	playerTwoScore = 0;
+}
+
 const getGameWinner = () => {
+	debugger;
+	console.log(playerOneScore, playerTwoScore);
 	if (playerOneScore > playerTwoScore) {
+		resetPlayerScore();
 		return "Player One";
 	} else if (playerOneScore < playerTwoScore) {
-		return "Player Two"
+		resetPlayerScore();
+		return "Player Two";
 	} else {
+		resetPlayerScore();
 		return "Tie";
 	}
 }
