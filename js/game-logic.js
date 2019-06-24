@@ -97,10 +97,10 @@ const roundWinner = (playerOneMoveType, playerTwoMoveType, playerOneMoveValue, p
 	} else if (playerOneMoveType === "scissors" && playerTwoMoveType === "paper") {
 		playerOneScore += 1;
 		return "Player One";
-	} else if (playerOneMoveOneType === playerTwoMoveType && playerOneMoveValue > playerTwoMoveValue) {
+	} else if (playerOneMoveType === playerTwoMoveType && playerOneMoveValue > playerTwoMoveValue) {
 		playerOneScore += 1;
 		return "Player One";
-	} else if (playerOneMoveOneType === playerTwoMoveType && playerOneMoveValue === playerTwoMoveValue) {
+	} else if (playerOneMoveType === playerTwoMoveType && playerOneMoveValue === playerTwoMoveValue) {
 		return "Tie";
 	} else {
 		playerTwoScore += 1;
