@@ -89,16 +89,21 @@ const isValidRound = (round) => {
 
 const roundWinner = (playerOneMoveType, playerTwoMoveType, playerOneMoveValue, playerTwoMoveValue) => {
 	if (playerOneMoveType === "rock" && playerTwoMoveType === "scissors") {
+		playerOneScore += 1;
 		return "Player One";
 	} else if (playerOneMoveType === "paper" && playerTwoMoveType === "rock") {
+		playerOneScore += 1;
 		return "Player One";
 	} else if (playerOneMoveType === "scissors" && playerTwoMoveType === "paper") {
+		playerOneScore += 1;
 		return "Player One";
 	} else if (playerOneMoveOneType === playerTwoMoveType && playerOneMoveValue > playerTwoMoveValue) {
+		playerOneScore += 1;
 		return "Player One";
 	} else if (playerOneMoveOneType === playerTwoMoveType && playerOneMoveValue === playerTwoMoveValue) {
 		return "Tie";
 	} else {
+		playerTwoScore += 1;
 		return "Player Two";
 	}
 }
@@ -127,5 +132,15 @@ const getRoundWinner = (round) => {
 			return null;
 		}
 		return roundWinner(playerOneMoveThreeType, playerTwoMoveThreeType, playerOneMoveThreeValue, playerTwoMoveThreeValue);
+	}
+}
+
+const getGameWinner = () => {
+	if (playerOneScore > playerTwoScore) {
+		return "Player One";
+	} else if (playerOneScore < playerTwoScore) {
+		return "Player Two"
+	} else {
+		return "Tie";
 	}
 }
