@@ -137,6 +137,21 @@ const getRoundWinner = (round) => {
 	}
 };
 
+const globalValuesSet = () => {
+	return playerOneMoveOneType &&
+		   playerOneMoveTwoType &&
+	 	   playerOneMoveThreeType &&
+		   playerTwoMoveOneType &&
+		   playerTwoMoveTwoType &&
+		   playerTwoMoveThreeType &&
+		   playerOneMoveOneValue &&
+		   playerOneMoveTwoValue &&
+		   playerOneMoveThreeValue &&
+		   playerTwoMoveOneValue &&
+		   playerTwoMoveTwoValue &&
+		   playerTwoMoveThreeValue;	
+};
+
 const incrementScores = winner => {
 	switch (winner) {
 		case P1:
@@ -148,6 +163,9 @@ const incrementScores = winner => {
 };
 
 const getGameWinner = () => {
+	if (!globalValuesSet()) {
+		return null;
+	}
 	playerOneScore = 0;
 	playerTwoScore = 0;
 
