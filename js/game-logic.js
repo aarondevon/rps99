@@ -18,6 +18,9 @@ let playerTwoMoveThreeValue;
 let playerOneScore = 0;
 let playerTwoScore = 0;
 
+const P1 = "Player One";
+const P2 = "Player Two";
+
 const validMoves = ["rock", "paper", "scissors"];
 
 // generate array of valid values
@@ -89,21 +92,16 @@ const isValidRound = (round) => {
 
 const roundWinner = (playerOneMoveType, playerTwoMoveType, playerOneMoveValue, playerTwoMoveValue) => {
 	if (playerOneMoveType === "rock" && playerTwoMoveType === "scissors") {
-		playerOneScore += 1;
 		return "Player One";
 	} else if (playerOneMoveType === "paper" && playerTwoMoveType === "rock") {
-		playerOneScore += 1;
 		return "Player One";
 	} else if (playerOneMoveType === "scissors" && playerTwoMoveType === "paper") {
-		playerOneScore += 1;
 		return "Player One";
 	} else if (playerOneMoveType === playerTwoMoveType && playerOneMoveValue > playerTwoMoveValue) {
-		playerOneScore += 1;
 		return "Player One";
 	} else if (playerOneMoveType === playerTwoMoveType && playerOneMoveValue === playerTwoMoveValue) {
 		return "Tie";
 	} else {
-		playerTwoScore += 1;
 		return "Player Two";
 	}
 };
@@ -140,7 +138,25 @@ const resetPlayerScore = () => {
 	playerTwoScore = 0;
 };
 
+const incrementScores = winner => {
+	switch (winner) {
+		case P1:
+				playerOneScore += 1;
+				break;
+		case P2:
+			playerTwoScore +=1;
+	}
+};
+
 const getGameWinner = () => {
+	let roundOneWinner = getRoundWinner(1);
+	let roundTwoWinner = getRoundWinner(2);
+	let roundThreeWinner = getRoundWinner(3);
+
+	incrementScores(roundOneWinner);
+	incrementScores(roundTwoWinner);
+	incrementScores(roundThreeWinner);
+
 	if (playerOneScore > playerTwoScore) {
 		resetPlayerScore();
 		return "Player One";
