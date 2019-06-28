@@ -15,8 +15,9 @@ let playerTwoMoveOneValue;
 let playerTwoMoveTwoValue;
 let playerTwoMoveThreeValue;
 
-let playerOneScore = 0;
-let playerTwoScore = 0;
+// set to 0 in getGameWinner function
+let playerOneScore;
+let playerTwoScore;
 
 const P1 = "Player One";
 const P2 = "Player Two";
@@ -152,6 +153,9 @@ const incrementScores = winner => {
 };
 
 const getGameWinner = () => {
+	playerOneScore = 0;
+	playerTwoScore = 0;
+
 	let roundOneWinner = getRoundWinner(1);
 	let roundTwoWinner = getRoundWinner(2);
 	let roundThreeWinner = getRoundWinner(3);
@@ -161,13 +165,10 @@ const getGameWinner = () => {
 	incrementScores(roundThreeWinner);
 
 	if (playerOneScore > playerTwoScore) {
-		resetPlayerScore();
 		return P1;
 	} else if (playerOneScore < playerTwoScore) {
-		resetPlayerScore();
 		return P2;
 	} else {
-		resetPlayerScore();
 		return "Tie";
 	}
 };
