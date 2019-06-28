@@ -153,12 +153,33 @@ const getGameWinner = () => {
 	}
 };
 
-const setComputerMoves = () => {
-	playerTwoMoveOneType;
-	playerTwoMoveTwoType;
-	playerTwoMoveThreeType;
+const getRandomType = (maxValue) => {
+	return validMoves[Math.floor(Math.random() * (validMoves.length - 0))];
+};
 
-	playerTwoMoveOneValue;
-	playerTwoMoveTwoValue;
-	playerTwoMoveThreeValue;
+const getRandomValue = (maxValue) => {
+	return Math.floor(Math.random() * (maxValue - 1) + 1);	
+
+};
+
+const setComputerMoves = () => {
+	playerTwoMoveOneType = getRandomType();
+	playerTwoMoveTwoType = getRandomType();
+	playerTwoMoveThreeType = getRandomType();
+
+	let maxValue = validValues.length - 2;
+
+	playerTwoMoveOneValue = getRandomValue(maxValue);
+
+	if (99 - playerTwoMoveOneValue === 2) {
+		playerTwoMoveTwoValue = 1;
+		
+		playerTwoMoveThreeValue = 1
+	} else {
+		maxValue -= playerTwoMoveOneValue;
+		playerTwoMoveTwoValue = getRandomValue(maxValue);
+		maxValue -= playerTwoMoveTwoValue;
+		
+		playerTwoMoveThreeValue = maxValue + 2;
+	}
 };
