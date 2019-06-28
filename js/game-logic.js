@@ -20,8 +20,11 @@ let playerTwoScore = 0;
 
 const P1 = "Player One";
 const P2 = "Player Two";
+const ROCK = "rock";
+const PAPER = "paper";
+const SCISSORS = "scissors";
 
-const validMoves = ["rock", "paper", "scissors"];
+const validMoves = [ROCK, PAPER, SCISSORS];
 
 // generate array of valid values
 const fillRange = (start, end) => {
@@ -67,7 +70,7 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
 		return;
 	}
 
-	if (player === "Player One") {
+	if (player === P1) {
 		playerOneMoveOneType = moveOneType;
 		playerOneMoveTwoType = moveTwoType;
 		playerOneMoveThreeType = moveThreeType;
@@ -75,7 +78,7 @@ const setPlayerMoves = (player, moveOneType, moveOneValue, moveTwoType, moveTwoV
 		playerOneMoveOneValue = moveOneValue;
 		playerOneMoveTwoValue = moveTwoValue;
 		playerOneMoveThreeValue = moveThreeValue;
-	} else if (player === "Player Two") {
+	} else if (player === P2) {
 		playerTwoMoveOneType = moveOneType;
 		playerTwoMoveTwoType = moveTwoType;
 		playerTwoMoveThreeType = moveThreeType;
@@ -91,18 +94,18 @@ const isValidRound = (round) => {
 };
 
 const roundWinner = (playerOneMoveType, playerTwoMoveType, playerOneMoveValue, playerTwoMoveValue) => {
-	if (playerOneMoveType === "rock" && playerTwoMoveType === "scissors") {
-		return "Player One";
-	} else if (playerOneMoveType === "paper" && playerTwoMoveType === "rock") {
-		return "Player One";
-	} else if (playerOneMoveType === "scissors" && playerTwoMoveType === "paper") {
-		return "Player One";
+	if (playerOneMoveType === ROCK && playerTwoMoveType === SCISSORS) {
+		return P1;
+	} else if (playerOneMoveType === PAPER && playerTwoMoveType === ROCK) {
+		return P1;
+	} else if (playerOneMoveType === SCISSORS && playerTwoMoveType === PAPER) {
+		return P1;
 	} else if (playerOneMoveType === playerTwoMoveType && playerOneMoveValue > playerTwoMoveValue) {
-		return "Player One";
+		return P1;
 	} else if (playerOneMoveType === playerTwoMoveType && playerOneMoveValue === playerTwoMoveValue) {
 		return "Tie";
 	} else {
-		return "Player Two";
+		return P2;
 	}
 };
 
@@ -159,10 +162,10 @@ const getGameWinner = () => {
 
 	if (playerOneScore > playerTwoScore) {
 		resetPlayerScore();
-		return "Player One";
+		return P1;
 	} else if (playerOneScore < playerTwoScore) {
 		resetPlayerScore();
-		return "Player Two";
+		return P2;
 	} else {
 		resetPlayerScore();
 		return "Tie";
