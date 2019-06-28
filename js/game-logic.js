@@ -137,11 +137,6 @@ const getRoundWinner = (round) => {
 	}
 };
 
-const resetPlayerScore = () => {
-	playerOneScore = 0;
-	playerTwoScore = 0;
-};
-
 const incrementScores = winner => {
 	switch (winner) {
 		case P1:
